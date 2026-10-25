@@ -1,0 +1,138 @@
+name: build
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: ${{ matrix.redmine }} ${{ matrix.db }} ruby-${{ matrix.ruby }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ['3.2', '3.3', '3.4']
+        redmine: ['6.1-stable', '7.0-stable']
+        db: ['postgres', 'mysql']
+        include:
+          # Redmine 7.0 mit Ruby 4.0
+          - redmine: '7.0-stable'
+            ruby: '4.0'
+            db: 'postgres'
+          - redmine: '7.0-stable'
+            ruby: '4.0'
+            db: 'mysql'
+          # Redmine master mit Ruby 4.0
+          - redmine: 'master'
+            ruby: '4.0'
+            db: 'postgres'
+          - redmine: 'master'
+            ruby: '4.0'
+            db: 'mysql'
+
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: 'BestPasswordEver'
+        ports:
+          - 3306/tcp
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - name: Verify MySQL connection from host
+        run: |
+          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports[3306] }} -uroot -pBestPasswordEver -e "SHOW DATABASES"
+        if: matrix.db == 'mysql'
+
+      - name: Checkout Redmine
+        uses: actions/checkout@v7
+        with:
+          repository: redmine/redmine
+          ref: ${{ matrix.redmine }}
+          path: redmine
+
+      - name: Checkout redmine_query_sort_memory
+        uses: actions/checkout@v7
+        with:
+          repository: flowalchs/redmine_query_sort_memory
+          path: redmine/plugins/redmine_query_sort_memory
+
+      - name: Update package archives
+        run: sudo apt-get update --yes --quiet
+
+      - name: Install package dependencies
+        run: >
+          sudo apt-get install --yes --quiet
+          build-essential
+          cmake
+          libicu-dev
+          libpq-dev
+          libmysqlclient-dev
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+
+      - name: Prepare Redmine source
+        working-directory: redmine
+        run: |
+          cp plugins/redmine_query_sort_memory/test/support/database-${{ matrix.db }}.yml config/database.yml
+          cp plugins/redmine_query_sort_memory/test/support/configuration.yml config/configuration.yml
+
+      - name: Install Ruby dependencies
+        working-directory: redmine
+        run: |
+          bundle config set --local without 'development'
+          bundle install --jobs=4 --retry=3
+
+      - name: Run Redmine rake tasks
+        env:
+          RAILS_ENV: test
+          MYSQL_PORT: ${{ job.services.mysql.ports[3306] }}
+        working-directory: redmine
+        run: |
+          bundle exec rake generate_secret_token
+          bundle exec rake db:create db:migrate redmine:plugins:migrate
+
+      - name: Run tests with coverage
+        env:
+          RAILS_ENV: test
+          MYSQL_PORT: ${{ job.services.mysql.ports[3306] }}
+          COVERAGE: "1"
+        working-directory: redmine
+        run: bundle exec rake redmine:plugins:test NAME=redmine_query_sort_memory
+
+      - name: Run uninstall test
+        env:
+          RAILS_ENV: test
+          MYSQL_PORT: ${{ job.services.mysql.ports[3306] }}
+        working-directory: redmine
+        run: bundle exec rake redmine:plugins:migrate NAME=redmine_query_sort_memory VERSION=0
+        
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v7
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+        

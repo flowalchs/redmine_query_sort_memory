@@ -1,0 +1,8 @@
+ja:
+  label_query_sort_memory_storage: "ソート条件の保存先"
+  label_query_sort_memory_storage_session: "セッション(ログアウトまで)"
+  label_query_sort_memory_storage_preference_session: "ユーザー設定(ログイン時に削除)"
+  label_query_sort_memory_storage_preference: "ユーザー設定(永続)"
+  label_query_sort_memory_max_queries: "ユーザーごとに記憶するクエリ数"
+  text_query_sort_memory_max_queries: "最近ソートしたクエリのソート条件のみが保持されます。"
+  label_query_sort_memory_reset: "ソート条件をリセット"

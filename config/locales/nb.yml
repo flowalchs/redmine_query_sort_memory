@@ -1,0 +1,8 @@
+nb:
+  label_query_sort_memory_storage: "Lagring av sorteringer"
+  label_query_sort_memory_storage_session: "Økt (til utlogging)"
+  label_query_sort_memory_storage_preference_session: "Brukerinnstilling, slettes ved innlogging"
+  label_query_sort_memory_storage_preference: "Brukerinnstilling, beholdes"
+  label_query_sort_memory_max_queries: "Lagrede spørringer per bruker"
+  text_query_sort_memory_max_queries: "Bare sorteringene til de sist sorterte spørringene beholdes."
+  label_query_sort_memory_reset: "Tilbakestill sortering"

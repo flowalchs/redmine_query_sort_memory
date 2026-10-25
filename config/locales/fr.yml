@@ -1,0 +1,8 @@
+fr:
+  label_query_sort_memory_storage: "Stockage des tris"
+  label_query_sort_memory_storage_session: "Session (jusqu'à la déconnexion)"
+  label_query_sort_memory_storage_preference_session: "Préférence de l'utilisateur, effacée à la connexion"
+  label_query_sort_memory_storage_preference: "Préférence de l'utilisateur, conservée"
+  label_query_sort_memory_max_queries: "Rapports mémorisés par utilisateur"
+  text_query_sort_memory_max_queries: "Seuls les tris des rapports triés le plus récemment sont conservés."
+  label_query_sort_memory_reset: "Réinitialiser le tri"

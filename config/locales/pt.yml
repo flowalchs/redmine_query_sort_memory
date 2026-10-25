@@ -1,0 +1,8 @@
+pt:
+  label_query_sort_memory_storage: "Armazenamento das ordenações"
+  label_query_sort_memory_storage_session: "Sessão (até terminar a sessão)"
+  label_query_sort_memory_storage_preference_session: "Preferência do utilizador, apagada ao iniciar sessão"
+  label_query_sort_memory_storage_preference: "Preferência do utilizador, permanente"
+  label_query_sort_memory_max_queries: "Consultas memorizadas por utilizador"
+  text_query_sort_memory_max_queries: "Apenas são mantidas as ordenações das consultas ordenadas mais recentemente."
+  label_query_sort_memory_reset: "Repor ordenação"

@@ -1,0 +1,8 @@
+sv:
+  label_query_sort_memory_storage: "Lagring av sorteringar"
+  label_query_sort_memory_storage_session: "Session (tills utloggning)"
+  label_query_sort_memory_storage_preference_session: "Användarinställning, rensas vid inloggning"
+  label_query_sort_memory_storage_preference: "Användarinställning, sparas"
+  label_query_sort_memory_max_queries: "Sparade filtreringar per användare"
+  text_query_sort_memory_max_queries: "Endast sorteringarna för de senast sorterade filtreringarna sparas."
+  label_query_sort_memory_reset: "Återställ sortering"

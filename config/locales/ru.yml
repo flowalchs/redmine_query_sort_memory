@@ -1,0 +1,8 @@
+ru:
+  label_query_sort_memory_storage: "Хранение сортировок"
+  label_query_sort_memory_storage_session: "Сессия (до выхода)"
+  label_query_sort_memory_storage_preference_session: "Настройки пользователя, удаляются при входе"
+  label_query_sort_memory_storage_preference: "Настройки пользователя, сохраняются"
+  label_query_sort_memory_max_queries: "Запоминаемых запросов на пользователя"
+  text_query_sort_memory_max_queries: "Сохраняются только сортировки последних отсортированных запросов."
+  label_query_sort_memory_reset: "Сбросить сортировку"

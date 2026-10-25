@@ -1,0 +1,8 @@
+zh:
+  label_query_sort_memory_storage: "排序的存储方式"
+  label_query_sort_memory_storage_session: "会话(直到退出)"
+  label_query_sort_memory_storage_preference_session: "用户首选项,登录时清除"
+  label_query_sort_memory_storage_preference: "用户首选项,永久保留"
+  label_query_sort_memory_max_queries: "每个用户记住的查询数"
+  text_query_sort_memory_max_queries: "仅保留最近排序的查询的排序。"
+  label_query_sort_memory_reset: "重置排序"

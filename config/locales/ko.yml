@@ -1,0 +1,8 @@
+ko:
+  label_query_sort_memory_storage: "정렬 저장 위치"
+  label_query_sort_memory_storage_session: "세션 (로그아웃할 때까지)"
+  label_query_sort_memory_storage_preference_session: "사용자 설정, 로그인 시 삭제"
+  label_query_sort_memory_storage_preference: "사용자 설정, 영구 보관"
+  label_query_sort_memory_max_queries: "사용자별 기억할 검색양식 수"
+  text_query_sort_memory_max_queries: "가장 최근에 정렬한 검색양식의 정렬만 유지됩니다."
+  label_query_sort_memory_reset: "정렬 초기화"

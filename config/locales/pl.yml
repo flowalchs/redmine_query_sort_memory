@@ -1,0 +1,8 @@
+pl:
+  label_query_sort_memory_storage: "Przechowywanie sortowań"
+  label_query_sort_memory_storage_session: "Sesja (do wylogowania)"
+  label_query_sort_memory_storage_preference_session: "Preferencje użytkownika, usuwane przy logowaniu"
+  label_query_sort_memory_storage_preference: "Preferencje użytkownika, trwałe"
+  label_query_sort_memory_max_queries: "Zapamiętane kwerendy na użytkownika"
+  text_query_sort_memory_max_queries: "Zachowywane są tylko sortowania ostatnio sortowanych kwerend."
+  label_query_sort_memory_reset: "Resetuj sortowanie"
