@@ -8,6 +8,8 @@ class QuerySortMemorySettingsControllerTest < Redmine::ControllerTest
   fixtures :users, :email_addresses, :user_preferences
 
   def setup
+    # The settings saved by another test can still be cached
+    Setting.clear_cache
     @request.session[:user_id] = 1
   end
 
