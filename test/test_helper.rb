@@ -5,16 +5,15 @@ if ENV['COVERAGE']
 
   # The Cobertura report for Codecov needs simplecov-cobertura, which is
   # installed in CI (see .github/workflows/build.yml)
-  formatters = [SimpleCov::Formatter::HTMLFormatter]
+  coverage_formatters = [SimpleCov::Formatter::HTMLFormatter]
   begin
     require 'simplecov-cobertura'
-    formatters << SimpleCov::Formatter::CoberturaFormatter
+    coverage_formatters << SimpleCov::Formatter::CoberturaFormatter
   rescue LoadError
     warn 'simplecov-cobertura is not installed, only the HTML coverage report is created'
   end
 
   SimpleCov.coverage_dir 'coverage'
-  SimpleCov.formatters = formatters
 
   SimpleCov.start :rails do
     add_filter 'init.rb'
@@ -26,6 +25,10 @@ $VERBOSE = nil if ENV['SUPPRESS_WARNINGS']
 
 # Load the normal Rails helper
 require File.expand_path('../../../test/test_helper', __dir__)
+
+# The test helper of Redmine 6.1 and 7.0 sets its own formatter, so the
+# formatters are set after loading it
+SimpleCov.formatters = coverage_formatters if ENV['COVERAGE']
 
 module RedmineQuerySortMemory
   module TestHelper
