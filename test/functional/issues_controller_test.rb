@@ -62,7 +62,20 @@ class QuerySortMemoryIssuesControllerTest < Redmine::ControllerTest
     assert_select 'p.query-sort-memory', 0
 
     get(:index, :params => {:query_id => @query1.id, :sort => 'id:desc'})
-    assert_select 'p.query-sort-memory a[href=?]', "/issues?query_id=#{@query1.id}&query_sort_memory_reset=1"
+    assert_select 'p.query-sort-memory' do
+      assert_select 'a[href=?]', "/issues?query_id=#{@query1.id}&query_sort_memory_reset=1", :text => 'Reset sort order'
+      assert_select 'a[href=?][data-method=post]', '/query_sort_memory/reset?back_url=%2Fissues', :text => 'Reset all sort orders'
+    end
+  end
+
+  def test_sidebar_should_only_show_reset_all_link_for_a_query_without_remembered_sort_order
+    get(:index, :params => {:query_id => @query1.id, :sort => 'id:desc'})
+
+    get(:index, :params => {:query_id => @query2.id})
+    assert_select 'p.query-sort-memory' do
+      assert_select 'a', :text => 'Reset sort order', :count => 0
+      assert_select 'a', :text => 'Reset all sort orders'
+    end
   end
 
   def test_reset_should_forget_the_sort_order
@@ -74,6 +87,17 @@ class QuerySortMemoryIssuesControllerTest < Redmine::ControllerTest
 
     get :index
     assert_sorted_by_id_asc
+  end
+
+  def test_reset_should_only_forget_the_sort_order_of_the_current_query
+    get(:index, :params => {:query_id => @query1.id, :sort => 'id:desc'})
+    get(:index, :params => {:query_id => @query2.id, :sort => 'id:desc'})
+
+    get(:index, :params => {:query_id => @query1.id, :query_sort_memory_reset => 1})
+    assert_sorted_by_id_asc
+
+    get(:index, :params => {:query_id => @query2.id})
+    assert_sorted_by_id_desc
   end
 
   def test_should_only_keep_the_most_recently_sorted_queries

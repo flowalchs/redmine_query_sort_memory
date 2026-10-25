@@ -57,6 +57,10 @@ module RedmineQuerySortMemory
       save({})
     end
 
+    def any?
+      entries.any?
+    end
+
     private
 
     def use_preference?

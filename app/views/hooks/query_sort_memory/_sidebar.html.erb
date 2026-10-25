@@ -1,8 +1,15 @@
-<% if @query&.persisted? && query_sort_memory.recall(@query) %>
+<% if query_sort_memory.any? %>
   <p class="query-sort-memory">
-    <%= link_to sprite_icon('reload', l(:label_query_sort_memory_reset)),
-                _project_issues_path(@project, :query_id => @query.id,
-                                     RedmineQuerySortMemory::QueriesHelperPatch::RESET_PARAM => 1),
+    <% if @query&.persisted? && query_sort_memory.recall(@query) %>
+      <%= link_to sprite_icon('reload', l(:label_query_sort_memory_reset)),
+                  _project_issues_path(@project, :query_id => @query.id,
+                                       RedmineQuerySortMemory::QueriesHelperPatch::RESET_PARAM => 1),
+                  :class => 'icon icon-reload' %>
+      <br />
+    <% end %>
+    <%= link_to sprite_icon('reload', l(:label_query_sort_memory_reset_all)),
+                reset_query_sort_memory_path(:back_url => _project_issues_path(@project)),
+                :method => :post, :data => {:confirm => l(:text_are_you_sure)},
                 :class => 'icon icon-reload' %>
   </p>
 <% end %>

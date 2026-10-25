@@ -23,7 +23,8 @@ In Redmine, selecting a saved query always applies the sort order defined in the
 - **Remembered sort order per saved query and user**
 - **Configurable storage** – Keep the sort orders in the session, in the user preference until the next login, or permanently in the user preference
 - **Limited number of queries** – Only the sort orders of the most recently sorted queries are kept (default: 10)
-- **Reset link** – "Reset sort order" in the sidebar of the issue list, shown when the current query has a remembered sort order
+- **Reset one query** – "Reset sort order" in the sidebar of the issue list, shown when the current query has a remembered sort order
+- **Reset all queries** – "Reset all sort orders" in the sidebar of the issue list, shown when sort orders are remembered
 - **Automatic reset** – Sorting the list by the sort order of the query forgets the remembered sort order
 - **REST API unaffected** – API requests always use the sort order of the query
 - **No additional gems and no migration**
@@ -37,6 +38,15 @@ An issue passes through several saved queries until it is done, e.g. "New", "In 
 3. Switch back to "In progress": the list is sorted by "Updated" again
 4. Switch back to "Review": the list is sorted by "Priority" again
 
+## 🔄 Reset Sort Orders
+
+| Where                                   | Link                    | Effect                                                         |
+| --------------------------------------- | ----------------------- | -------------------------------------------------------------- |
+| Sidebar of the issue list               | Reset sort order        | Forgets the sort order of the current query only               |
+| Sidebar of the issue list               | Reset all sort orders   | Forgets the sort orders of all queries of the current user     |
+
+The sort order of a query is also forgotten when you sort the list by the sort order defined in the query again.
+
 ## ⚙️ Plugin Configuration
 
 Configure the plugin under **Administration → Plugins → Redmine Query Sort Memory → Configure**:
@@ -47,12 +57,6 @@ Configure the plugin under **Administration → Plugins → Redmine Query Sort M
 | Remembered queries per user    | Maximum number of queries whose sort order is remembered (default: 10)                            |
 
 The session of Redmine is stored in a cookie with a limited size. The sort orders are stored compactly, and the number of remembered queries is limited for this reason.
-
-## 🌐 Internationalization
-The plugin supports 14 languages, including English, German, Japanese, French, Spanish, and more.
-- <u>Full Support:</u> English and German are currently the primary maintained languages.
-- <u>Experimental:</u> Other languages are currently in an experimental state.
-- <u>Contribute:</u> Pull Requests to improve or add translations for your language are highly welcome!
 
 ## 📋 Requirements
 
