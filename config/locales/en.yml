@@ -6,3 +6,5 @@ en:
   label_query_sort_memory_max_queries: Remembered queries per user
   text_query_sort_memory_max_queries: Only the sort orders of the most recently sorted queries are kept.
   label_query_sort_memory_reset: Reset sort order
+  label_query_sort_memory_reset_all: "Reset all sort orders"
+  notice_query_sort_memory_reset_all: "All remembered sort orders have been reset."

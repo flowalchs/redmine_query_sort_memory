@@ -6,3 +6,5 @@ de:
   label_query_sort_memory_max_queries: Gemerkte Abfragen pro Benutzer
   text_query_sort_memory_max_queries: Es werden nur die Sortierungen der zuletzt umsortierten Abfragen behalten.
   label_query_sort_memory_reset: Sortierung zurücksetzen
+  label_query_sort_memory_reset_all: "Alle Sortierungen zurücksetzen"
+  notice_query_sort_memory_reset_all: "Alle gemerkten Sortierungen wurden zurückgesetzt."

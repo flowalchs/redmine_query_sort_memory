@@ -6,3 +6,5 @@ pl:
   label_query_sort_memory_max_queries: "Zapamiętane kwerendy na użytkownika"
   text_query_sort_memory_max_queries: "Zachowywane są tylko sortowania ostatnio sortowanych kwerend."
   label_query_sort_memory_reset: "Resetuj sortowanie"
+  label_query_sort_memory_reset_all: "Resetuj wszystkie sortowania"
+  notice_query_sort_memory_reset_all: "Wszystkie zapamiętane sortowania zostały zresetowane."

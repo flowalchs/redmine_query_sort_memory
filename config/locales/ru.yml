@@ -6,3 +6,5 @@ ru:
   label_query_sort_memory_max_queries: "Запоминаемых запросов на пользователя"
   text_query_sort_memory_max_queries: "Сохраняются только сортировки последних отсортированных запросов."
   label_query_sort_memory_reset: "Сбросить сортировку"
+  label_query_sort_memory_reset_all: "Сбросить все сортировки"
+  notice_query_sort_memory_reset_all: "Все запомненные сортировки сброшены."

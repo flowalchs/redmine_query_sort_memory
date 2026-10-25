@@ -6,3 +6,5 @@ ja:
   label_query_sort_memory_max_queries: "ユーザーごとに記憶するクエリ数"
   text_query_sort_memory_max_queries: "最近ソートしたクエリのソート条件のみが保持されます。"
   label_query_sort_memory_reset: "ソート条件をリセット"
+  label_query_sort_memory_reset_all: "すべてのソート条件をリセット"
+  notice_query_sort_memory_reset_all: "記憶されたすべてのソート条件をリセットしました。"

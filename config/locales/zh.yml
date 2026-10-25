@@ -6,3 +6,5 @@ zh:
   label_query_sort_memory_max_queries: "每个用户记住的查询数"
   text_query_sort_memory_max_queries: "仅保留最近排序的查询的排序。"
   label_query_sort_memory_reset: "重置排序"
+  label_query_sort_memory_reset_all: "重置所有排序"
+  notice_query_sort_memory_reset_all: "所有已记住的排序均已重置。"

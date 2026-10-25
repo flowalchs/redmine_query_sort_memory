@@ -6,3 +6,5 @@ ko:
   label_query_sort_memory_max_queries: "사용자별 기억할 검색양식 수"
   text_query_sort_memory_max_queries: "가장 최근에 정렬한 검색양식의 정렬만 유지됩니다."
   label_query_sort_memory_reset: "정렬 초기화"
+  label_query_sort_memory_reset_all: "모든 정렬 초기화"
+  notice_query_sort_memory_reset_all: "기억된 모든 정렬이 초기화되었습니다."

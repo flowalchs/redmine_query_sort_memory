@@ -6,3 +6,5 @@ nb:
   label_query_sort_memory_max_queries: "Lagrede spørringer per bruker"
   text_query_sort_memory_max_queries: "Bare sorteringene til de sist sorterte spørringene beholdes."
   label_query_sort_memory_reset: "Tilbakestill sortering"
+  label_query_sort_memory_reset_all: "Tilbakestill alle sorteringer"
+  notice_query_sort_memory_reset_all: "Alle lagrede sorteringer er tilbakestilt."

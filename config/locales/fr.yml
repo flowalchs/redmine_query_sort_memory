@@ -6,3 +6,5 @@ fr:
   label_query_sort_memory_max_queries: "Rapports mémorisés par utilisateur"
   text_query_sort_memory_max_queries: "Seuls les tris des rapports triés le plus récemment sont conservés."
   label_query_sort_memory_reset: "Réinitialiser le tri"
+  label_query_sort_memory_reset_all: "Réinitialiser tous les tris"
+  notice_query_sort_memory_reset_all: "Tous les tris mémorisés ont été réinitialisés."

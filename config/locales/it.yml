@@ -6,3 +6,5 @@ it:
   label_query_sort_memory_max_queries: "Query memorizzate per utente"
   text_query_sort_memory_max_queries: "Vengono mantenuti solo gli ordinamenti delle query ordinate più di recente."
   label_query_sort_memory_reset: "Ripristina ordinamento"
+  label_query_sort_memory_reset_all: "Ripristina tutti gli ordinamenti"
+  notice_query_sort_memory_reset_all: "Tutti gli ordinamenti memorizzati sono stati ripristinati."

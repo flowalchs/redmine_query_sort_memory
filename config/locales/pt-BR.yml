@@ -6,3 +6,5 @@ pt-BR:
   label_query_sort_memory_max_queries: "Consultas lembradas por usuário"
   text_query_sort_memory_max_queries: "Somente as ordenações das consultas ordenadas mais recentemente são mantidas."
   label_query_sort_memory_reset: "Redefinir ordenação"
+  label_query_sort_memory_reset_all: "Redefinir todas as ordenações"
+  notice_query_sort_memory_reset_all: "Todas as ordenações lembradas foram redefinidas."

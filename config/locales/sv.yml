@@ -6,3 +6,5 @@ sv:
   label_query_sort_memory_max_queries: "Sparade filtreringar per användare"
   text_query_sort_memory_max_queries: "Endast sorteringarna för de senast sorterade filtreringarna sparas."
   label_query_sort_memory_reset: "Återställ sortering"
+  label_query_sort_memory_reset_all: "Återställ alla sorteringar"
+  notice_query_sort_memory_reset_all: "Alla sparade sorteringar har återställts."
