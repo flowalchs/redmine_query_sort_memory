@@ -13,6 +13,11 @@ class QuerySortMemorySettingsControllerTest < Redmine::ControllerTest
     @request.session[:user_id] = 1
   end
 
+  # The settings saved here must not remain cached for the other tests
+  def teardown
+    Setting.clear_cache
+  end
+
   def test_plugin_settings
     get(:plugin, :params => {:id => 'redmine_query_sort_memory'})
     assert_response :success
