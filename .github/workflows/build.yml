@@ -99,6 +99,9 @@ jobs:
         run: |
           cp plugins/redmine_query_sort_memory/test/support/database-${{ matrix.db }}.yml config/database.yml
           cp plugins/redmine_query_sort_memory/test/support/configuration.yml config/configuration.yml
+          # Cobertura report for Codecov, only needed in CI. The plugin has no
+          # Gemfile, so that it can be installed without bundle install.
+          echo "gem 'simplecov-cobertura', :require => false, :group => :test" > Gemfile.local
 
       - name: Install Ruby dependencies
         working-directory: redmine

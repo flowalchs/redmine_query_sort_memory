@@ -82,6 +82,8 @@ cd $REDMINE_ROOT
 bundle exec rake redmine:plugins:test NAME=redmine_query_sort_memory RAILS_ENV=test
 ```
 
+With `COVERAGE=1`, a coverage report is created in `coverage/` (with `simplecov` of Redmine). The Cobertura report for Codecov is created only if `simplecov-cobertura` is installed, e.g. with `gem 'simplecov-cobertura'` in Redmine's `Gemfile.local`.
+
 ## ❌ Uninstall
 
 Remove the directory `plugins/redmine_query_sort_memory` and restart your Redmine server.

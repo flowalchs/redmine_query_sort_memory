@@ -2,27 +2,23 @@
 
 if ENV['COVERAGE']
   require 'simplecov'
-  require 'simplecov-cobertura'
+
+  # The Cobertura report for Codecov needs simplecov-cobertura, which is
+  # installed in CI (see .github/workflows/build.yml)
+  formatters = [SimpleCov::Formatter::HTMLFormatter]
+  begin
+    require 'simplecov-cobertura'
+    formatters << SimpleCov::Formatter::CoberturaFormatter
+  rescue LoadError
+    warn 'simplecov-cobertura is not installed, only the HTML coverage report is created'
+  end
 
   SimpleCov.coverage_dir 'coverage'
-
-  SimpleCov.formatters = [
-    SimpleCov::Formatter::HTMLFormatter,
-    SimpleCov::Formatter::CoberturaFormatter
-  ]
+  SimpleCov.formatters = formatters
 
   SimpleCov.start :rails do
     add_filter 'init.rb'
     root File.expand_path("#{File.dirname __FILE__}/..")
-  end
-
-  # Cobertura-XML at the end
-  at_exit do
-    result = SimpleCov.result
-    # Cobertura-file
-    SimpleCov::Formatter::CoberturaFormatter.new.format(result)
-    # html also
-    SimpleCov::Formatter::HTMLFormatter.new.format(result)
   end
 end
 

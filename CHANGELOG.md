@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.1 (unreleased)
+* fix: the plugin required bundle install because of its Gemfile (#1)
+
 ## v1.0.0 (2026-10-25)
 * feat: remember the sort order selected in a saved query for each user
 * feat: storage of the sort orders in the session or in the user preference (cleared at login or kept)
