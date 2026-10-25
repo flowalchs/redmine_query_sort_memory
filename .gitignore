@@ -1,0 +1,4 @@
+/coverage/
+/tmp/
+*.gem
+.byebug_history

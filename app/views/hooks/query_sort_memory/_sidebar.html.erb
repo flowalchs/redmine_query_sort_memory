@@ -1,0 +1,8 @@
+<% if @query&.persisted? && query_sort_memory.recall(@query) %>
+  <p class="query-sort-memory">
+    <%= link_to sprite_icon('reload', l(:label_query_sort_memory_reset)),
+                _project_issues_path(@project, :query_id => @query.id,
+                                     RedmineQuerySortMemory::QueriesHelperPatch::RESET_PARAM => 1),
+                :class => 'icon icon-reload' %>
+  </p>
+<% end %>

@@ -1,0 +1,8 @@
+en:
+  label_query_sort_memory_storage: Storage of the sort orders
+  label_query_sort_memory_storage_session: Session (until logout)
+  label_query_sort_memory_storage_preference_session: User preference, cleared at login
+  label_query_sort_memory_storage_preference: User preference, kept
+  label_query_sort_memory_max_queries: Remembered queries per user
+  text_query_sort_memory_max_queries: Only the sort orders of the most recently sorted queries are kept.
+  label_query_sort_memory_reset: Reset sort order

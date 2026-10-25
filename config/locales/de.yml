@@ -1,0 +1,8 @@
+de:
+  label_query_sort_memory_storage: Speicherung der Sortierungen
+  label_query_sort_memory_storage_session: Sitzung (bis zum Abmelden)
+  label_query_sort_memory_storage_preference_session: Benutzereinstellung, beim Anmelden gelöscht
+  label_query_sort_memory_storage_preference: Benutzereinstellung, dauerhaft
+  label_query_sort_memory_max_queries: Gemerkte Abfragen pro Benutzer
+  text_query_sort_memory_max_queries: Es werden nur die Sortierungen der zuletzt umsortierten Abfragen behalten.
+  label_query_sort_memory_reset: Sortierung zurücksetzen

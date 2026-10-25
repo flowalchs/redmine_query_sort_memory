@@ -1,0 +1,13 @@
+<p>
+  <%= label_tag 'settings_storage', l(:label_query_sort_memory_storage) %>
+  <%= select_tag 'settings[storage]',
+                 options_for_select(RedmineQuerySortMemory::Store::STORAGES.map {|s| [l("label_query_sort_memory_storage_#{s}"), s]},
+                                    RedmineQuerySortMemory::Store.storage),
+                 :id => 'settings_storage' %>
+</p>
+<p>
+  <%= label_tag 'settings_max_queries', l(:label_query_sort_memory_max_queries) %>
+  <%= number_field_tag 'settings[max_queries]', RedmineQuerySortMemory::Store.max_queries,
+                       :id => 'settings_max_queries', :min => 1, :max => 100 %>
+  <em class="info"><%= l(:text_query_sort_memory_max_queries) %></em>
+</p>
