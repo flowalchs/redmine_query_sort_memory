@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RedmineQuerySortMemory
-  VERSION = '0.1.0'
+  VERSION = '1.0.0'
 
   DEFAULT_SETTINGS = {
     'storage' => 'session',
